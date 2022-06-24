@@ -35,14 +35,14 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
     async function upload() {
-
         this.loading = true
         await axios.get("{{route('fire.private.event')}}", {
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'X-CSRF-TOKEN': "{{csrf_token()}}"
-            }
-        }).then(res => this.loading = false)
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8',
+                            'X-CSRF-TOKEN': "{{csrf_token()}}"
+                        }
+                    })
+                    .then(res => this.loading = false)
     }
     Echo.private('private.{{auth()->user()->id}}')
         .listen('OrderDispatched', (e) => document.getElementById('message').innerText = e.message);

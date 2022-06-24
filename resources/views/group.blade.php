@@ -55,7 +55,6 @@
     function init() {
         this.currentUserId = "{{auth()->user()->id}}"
 
-
         channel = Echo.join(`presence.{{$group->id}}`)
 
         this.changeState = (state) => {
@@ -65,8 +64,6 @@
                     state,
                     userId: this.currentUserId
                 });
-
-
         }
 
         channel
